@@ -1,5 +1,5 @@
 /* *************************************************************************************************************** */
-/*   main.cpp                                                                                                  */
+/*   dog.cpp                                                                                                  */
 /*   By: lvan-bre                                                                   .,                             */
 /*                                                                                 okxl                            */
 /*                                                                                xkddo                            */
@@ -24,31 +24,42 @@
 /*                                                                                                                 */
 /* *************************************************************************************************************** */
 
-#include "cat.hpp"
+
 #include "dog.hpp"
 
-int	main( void ) {
 
-	animal *	r = new animal();
-	animal *	a = new cat();
-	animal *	b = new dog();
+/* ================= Orthodox Canonical Form ================= */
 
-	std::cout << "\n" << CYAN;
 
-	std::cout << "this is an " << r->getType() << std::endl;
-	std::cout << "this is a " << a->getType() << std::endl;
-	std::cout << "this is a " << b->getType() << std::endl;
-
-	std::cout << "\n";
-
-	r->makeSound();
-	a->makeSound();
-	b->makeSound();
-
-	std::cout << "\n" << RESET;
-
-	delete(r);
-	delete(a);
-	delete(b);
-
+dog::dog( void ) {
+	type = "dog";
+	std::cout << GREEN << "Random" << WHITE << " dog" << GREEN << " has been created" << RESET << std::endl;
 }
+
+
+dog::dog ( const dog & src ) {
+	type = src.type;
+	std::cout << CYAN << "Random" << WHITE << " dog" << CYAN << " has been cloned" << RESET << std::endl;
+}
+
+
+dog::~dog ( void ) {
+	std::cout << YELLOW << "Random" << WHITE << " dog" << YELLOW << " has ascended into an higher realm" << RESET << std::endl;
+}
+
+
+dog & dog::operator=( const dog & src ) {
+	if ( this != &src ) {
+		type = src.type;
+	}
+	return ( *this );
+}
+
+
+/* ======================== functions ======================== */
+
+
+void	dog::makeSound( void ) {
+	std::cout << "Random dog sound" << std::endl;
+}
+

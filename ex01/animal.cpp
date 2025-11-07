@@ -1,5 +1,5 @@
 /* *************************************************************************************************************** */
-/*   main.cpp                                                                                                  */
+/*   animal.cpp                                                                                                    */
 /*   By: lvan-bre                                                                   .,                             */
 /*                                                                                 okxl                            */
 /*                                                                                xkddo                            */
@@ -24,31 +24,46 @@
 /*                                                                                                                 */
 /* *************************************************************************************************************** */
 
-#include "cat.hpp"
-#include "dog.hpp"
+#include "animal.hpp"
 
-int	main( void ) {
 
-	animal *	r = new animal();
-	animal *	a = new cat();
-	animal *	b = new dog();
+/* ================= Orthodox Canonical Form ================= */
 
-	std::cout << "\n" << CYAN;
 
-	std::cout << "this is an " << r->getType() << std::endl;
-	std::cout << "this is a " << a->getType() << std::endl;
-	std::cout << "this is a " << b->getType() << std::endl;
-
-	std::cout << "\n";
-
-	r->makeSound();
-	a->makeSound();
-	b->makeSound();
-
-	std::cout << "\n" << RESET;
-
-	delete(r);
-	delete(a);
-	delete(b);
-
+animal::animal( void ) : type("animal") {
+	std::cout << GREEN << "Random" << WHITE << " animal" << GREEN << " has been created" << RESET << std::endl;
 }
+
+
+animal::animal ( const animal & src ) : type(src.type) {
+	std::cout << CYAN << "Random" << WHITE << " animal" << CYAN << " has been cloned" << RESET << std::endl;
+}
+
+
+animal::~animal ( void ) {
+	std::cout << YELLOW << "Random" << WHITE << " animal" << YELLOW << " has ascended into an higher realm" << RESET << std::endl;
+}
+
+
+animal & animal::operator=( const animal & src ) {
+	if ( this != &src ) {
+		type = src.type;
+	}
+	return ( *this );
+}
+
+
+/* ========================= Getters ========================= */
+
+
+std::string	animal::getType( void ) {
+	return ( type );
+}
+
+
+/* ======================== functions ======================== */
+
+void	animal::makeSound( void ) {
+	std::cout << "Random animal sound" << std::endl;
+}
+

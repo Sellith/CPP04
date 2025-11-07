@@ -1,5 +1,5 @@
 /* *************************************************************************************************************** */
-/*   main.cpp                                                                                                  */
+/*   cat.hpp                                                                                                  */
 /*   By: lvan-bre                                                                   .,                             */
 /*                                                                                 okxl                            */
 /*                                                                                xkddo                            */
@@ -24,31 +24,26 @@
 /*                                                                                                                 */
 /* *************************************************************************************************************** */
 
-#include "cat.hpp"
-#include "dog.hpp"
+#ifndef CAT_HPP
+# define CAT_HPP
 
-int	main( void ) {
+# include <iostream>
 
-	animal *	r = new animal();
-	animal *	a = new cat();
-	animal *	b = new dog();
+# include "animal.hpp"
 
-	std::cout << "\n" << CYAN;
+class cat : public animal {
 
-	std::cout << "this is an " << r->getType() << std::endl;
-	std::cout << "this is a " << a->getType() << std::endl;
-	std::cout << "this is a " << b->getType() << std::endl;
+public:
 
-	std::cout << "\n";
+	cat ( void );
+	cat ( const cat & src );
 
-	r->makeSound();
-	a->makeSound();
-	b->makeSound();
+	~cat ( void );
 
-	std::cout << "\n" << RESET;
+	cat & operator= ( const cat & src );
 
-	delete(r);
-	delete(a);
-	delete(b);
+	void	makeSound ( void );
+	
+};
 
-}
+#endif

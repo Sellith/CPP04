@@ -1,5 +1,5 @@
 /* *************************************************************************************************************** */
-/*   main.cpp                                                                                                  */
+/*   WrongCat.hpp                                                                                                  */
 /*   By: lvan-bre                                                                   .,                             */
 /*                                                                                 okxl                            */
 /*                                                                                xkddo                            */
@@ -24,31 +24,26 @@
 /*                                                                                                                 */
 /* *************************************************************************************************************** */
 
-#include "cat.hpp"
-#include "dog.hpp"
+#ifndef WRONGCAT_HPP
+# define WRONGCAT_HPP
 
-int	main( void ) {
+# include <iostream>
 
-	animal *	r = new animal();
-	animal *	a = new cat();
-	animal *	b = new dog();
+# include "WrongAnimal.hpp"
 
-	std::cout << "\n" << CYAN;
+class WrongCat : public WrongAnimal {
 
-	std::cout << "this is an " << r->getType() << std::endl;
-	std::cout << "this is a " << a->getType() << std::endl;
-	std::cout << "this is a " << b->getType() << std::endl;
+public:
 
-	std::cout << "\n";
+	WrongCat ( void );
+	WrongCat ( const WrongCat & src );
 
-	r->makeSound();
-	a->makeSound();
-	b->makeSound();
+	~WrongCat ( void );
 
-	std::cout << "\n" << RESET;
+	WrongCat & operator= ( const WrongCat & src );
 
-	delete(r);
-	delete(a);
-	delete(b);
+	void	makeSound ( void );
+	
+};
 
-}
+#endif

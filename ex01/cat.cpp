@@ -1,5 +1,5 @@
 /* *************************************************************************************************************** */
-/*   main.cpp                                                                                                  */
+/*   cat.cpp                                                                                                       */
 /*   By: lvan-bre                                                                   .,                             */
 /*                                                                                 okxl                            */
 /*                                                                                xkddo                            */
@@ -24,31 +24,42 @@
 /*                                                                                                                 */
 /* *************************************************************************************************************** */
 
+
 #include "cat.hpp"
-#include "dog.hpp"
 
-int	main( void ) {
 
-	animal *	r = new animal();
-	animal *	a = new cat();
-	animal *	b = new dog();
+/* ================= Orthodox Canonical Form ================= */
 
-	std::cout << "\n" << CYAN;
 
-	std::cout << "this is an " << r->getType() << std::endl;
-	std::cout << "this is a " << a->getType() << std::endl;
-	std::cout << "this is a " << b->getType() << std::endl;
-
-	std::cout << "\n";
-
-	r->makeSound();
-	a->makeSound();
-	b->makeSound();
-
-	std::cout << "\n" << RESET;
-
-	delete(r);
-	delete(a);
-	delete(b);
-
+cat::cat( void ) {
+	type = "cat";
+	std::cout << GREEN << "Random" << WHITE << " cat" << GREEN << " has been created" << RESET << std::endl;
 }
+
+
+cat::cat ( const cat & src ) {
+	type = src.type;
+	std::cout << CYAN << "Random" << WHITE << " cat" << CYAN << " has been cloned" << RESET << std::endl;
+}
+
+
+cat::~cat ( void ) {
+	std::cout << YELLOW << "Random" << WHITE << " cat" << YELLOW << " has ascended into an higher realm" << RESET << std::endl;
+}
+
+
+cat & cat::operator=( const cat & src ) {
+	if ( this != &src ) {
+		type = src.type;
+	}
+	return ( *this );
+}
+
+
+/* ======================== functions ======================== */
+
+
+void	cat::makeSound( void ) {
+	std::cout << "Random cat sound" << std::endl;
+}
+

@@ -1,5 +1,5 @@
 /* *************************************************************************************************************** */
-/*   main.cpp                                                                                                  */
+/*   animal.hpp                                                                                                  */
 /*   By: lvan-bre                                                                   .,                             */
 /*                                                                                 okxl                            */
 /*                                                                                xkddo                            */
@@ -24,31 +24,42 @@
 /*                                                                                                                 */
 /* *************************************************************************************************************** */
 
-#include "cat.hpp"
-#include "dog.hpp"
+#ifndef ANIMAL_HPP
+# define ANIMAL_HPP
 
-int	main( void ) {
+# include <iostream>
 
-	animal *	r = new animal();
-	animal *	a = new cat();
-	animal *	b = new dog();
+# define RED	"\e[1;91m"
+# define GREEN	"\e[1;92m"
+# define YELLOW	"\e[1;93m"
+# define PURPLE	"\e[1;95m"
+# define CYAN	"\e[1;96m"
+# define WHITE	"\e[1;97m"
+# define RESET	"\e[0m"
 
-	std::cout << "\n" << CYAN;
+class animal {
 
-	std::cout << "this is an " << r->getType() << std::endl;
-	std::cout << "this is a " << a->getType() << std::endl;
-	std::cout << "this is a " << b->getType() << std::endl;
+public:
 
-	std::cout << "\n";
+/* ======= Orthodox Canonical Form ======= */
 
-	r->makeSound();
-	a->makeSound();
-	b->makeSound();
+	animal ( void );
+	animal ( const animal & src );
 
-	std::cout << "\n" << RESET;
+	virtual ~animal ( void );
 
-	delete(r);
-	delete(a);
-	delete(b);
+	animal & operator= ( const animal & src );
 
-}
+
+/* ============== functions ============== */
+
+	std::string			getType ( void );
+	virtual void		makeSound ( void );
+
+protected:
+
+	std::string	type;
+
+};
+
+#endif

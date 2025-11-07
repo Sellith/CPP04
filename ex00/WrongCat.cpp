@@ -1,5 +1,5 @@
 /* *************************************************************************************************************** */
-/*   main.cpp                                                                                                  */
+/*   WrongCat.cpp                                                                                                       */
 /*   By: lvan-bre                                                                   .,                             */
 /*                                                                                 okxl                            */
 /*                                                                                xkddo                            */
@@ -24,31 +24,40 @@
 /*                                                                                                                 */
 /* *************************************************************************************************************** */
 
-#include "cat.hpp"
-#include "dog.hpp"
+#include "include/WrongCat.hpp"
 
-int	main( void ) {
+/* ================= Orthodox Canonical Form ================= */
 
-	animal *	r = new animal();
-	animal *	a = new cat();
-	animal *	b = new dog();
 
-	std::cout << "\n" << CYAN;
-
-	std::cout << "this is an " << r->getType() << std::endl;
-	std::cout << "this is a " << a->getType() << std::endl;
-	std::cout << "this is a " << b->getType() << std::endl;
-
-	std::cout << "\n";
-
-	r->makeSound();
-	a->makeSound();
-	b->makeSound();
-
-	std::cout << "\n" << RESET;
-
-	delete(r);
-	delete(a);
-	delete(b);
-
+WrongCat::WrongCat( void ) {
+	type = "WrongCat";
+	std::cout << GREEN << "Random" << WHITE << " WrongCat" << GREEN << " has been created" << RESET << std::endl;
 }
+
+
+WrongCat::WrongCat ( const WrongCat & src ) {
+	type = src.type;
+	std::cout << CYAN << "Random" << WHITE << " WrongCat" << CYAN << " has been cloned" << RESET << std::endl;
+}
+
+
+WrongCat::~WrongCat ( void ) {
+	std::cout << YELLOW << "Random" << WHITE << " WrongCat" << YELLOW << " has ascended into an higher realm" << RESET << std::endl;
+}
+
+
+WrongCat & WrongCat::operator=( const WrongCat & src ) {
+	if ( this != &src ) {
+		type = src.type;
+	}
+	return ( *this );
+}
+
+
+/* ======================== functions ======================== */
+
+
+void	WrongCat::makeSound( void ) {
+	std::cout << "Random WrongCat sound" << std::endl;
+}
+
