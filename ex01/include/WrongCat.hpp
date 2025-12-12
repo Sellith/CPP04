@@ -1,5 +1,5 @@
 /* *************************************************************************************************************** */
-/*   cat.cpp                                                                                                       */
+/*   WrongCat.hpp                                                                                                  */
 /*   By: lvan-bre                                                                   .,                             */
 /*                                                                                 okxl                            */
 /*                                                                                xkddo                            */
@@ -24,42 +24,26 @@
 /*                                                                                                                 */
 /* *************************************************************************************************************** */
 
+#ifndef WRONGCAT_HPP
+# define WRONGCAT_HPP
 
-#include "cat.hpp"
+# include <iostream>
 
+# include "WrongAnimal.hpp"
 
-/* ================= Orthodox Canonical Form ================= */
+class WrongCat : public WrongAnimal {
 
+public:
 
-cat::cat( void ) {
-	type = "cat";
-	std::cout << GREEN << "Random" << WHITE << " cat" << GREEN << " has been created" << RESET << std::endl;
-}
+	WrongCat ( void );
+	WrongCat ( const WrongCat & src );
 
+	~WrongCat ( void );
 
-cat::cat ( const cat & src ) : animal(src) {
-	type = src.type;
-	std::cout << CYAN << "Random" << WHITE << " cat" << CYAN << " has been cloned" << RESET << std::endl;
-}
+	WrongCat & operator= ( const WrongCat & src );
 
+	void	makeSound ( void );
+	
+};
 
-cat::~cat ( void ) {
-	std::cout << YELLOW << "Random" << WHITE << " cat" << YELLOW << " has ascended into an higher realm" << RESET << std::endl;
-}
-
-
-cat & cat::operator=( const cat & src ) {
-	if ( this != &src ) {
-		type = src.type;
-	}
-	return ( *this );
-}
-
-
-/* ======================== functions ======================== */
-
-
-void	cat::makeSound( void ) {
-	std::cout << "Random cat sound" << std::endl;
-}
-
+#endif

@@ -37,7 +37,7 @@ cat::cat( void ) {
 }
 
 
-cat::cat ( const cat & src ) {
+cat::cat ( const cat & src ) : animal(src) {
 	type = src.type;
 	std::cout << CYAN << "Random" << WHITE << " cat" << CYAN << " has been cloned" << RESET << std::endl;
 }

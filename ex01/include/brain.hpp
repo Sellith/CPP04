@@ -1,5 +1,5 @@
 /* *************************************************************************************************************** */
-/*   cat.cpp                                                                                                       */
+/*   brain.hpp                                                                                                     */
 /*   By: lvan-bre                                                                   .,                             */
 /*                                                                                 okxl                            */
 /*                                                                                xkddo                            */
@@ -24,42 +24,9 @@
 /*                                                                                                                 */
 /* *************************************************************************************************************** */
 
-
-#include "cat.hpp"
-
-
-/* ================= Orthodox Canonical Form ================= */
+#ifndef BRAIN_HPP
+# define BRAIN_HPP
 
 
-cat::cat( void ) {
-	type = "cat";
-	std::cout << GREEN << "Random" << WHITE << " cat" << GREEN << " has been created" << RESET << std::endl;
-}
 
-
-cat::cat ( const cat & src ) : animal(src) {
-	type = src.type;
-	std::cout << CYAN << "Random" << WHITE << " cat" << CYAN << " has been cloned" << RESET << std::endl;
-}
-
-
-cat::~cat ( void ) {
-	std::cout << YELLOW << "Random" << WHITE << " cat" << YELLOW << " has ascended into an higher realm" << RESET << std::endl;
-}
-
-
-cat & cat::operator=( const cat & src ) {
-	if ( this != &src ) {
-		type = src.type;
-	}
-	return ( *this );
-}
-
-
-/* ======================== functions ======================== */
-
-
-void	cat::makeSound( void ) {
-	std::cout << "Random cat sound" << std::endl;
-}
-
+#endif

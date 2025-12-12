@@ -35,7 +35,8 @@ animal::animal( void ) : type("animal") {
 }
 
 
-animal::animal ( const animal & src ) : type(src.type) {
+animal::animal ( const animal & src ) {
+	type = src.type;
 	std::cout << CYAN << "Random" << WHITE << " animal" << CYAN << " has been cloned" << RESET << std::endl;
 }
 

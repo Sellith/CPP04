@@ -53,7 +53,7 @@ CLR_WTH		:=	\033[1;97m
 
 ERS_STR		:=	\033[2K\r
 
-SRCS		:=	main.cpp animal.cpp cat.cpp dog.cpp
+SRCS		:=	main.cpp animal.cpp cat.cpp dog.cpp WrongAnimal.cpp WrongCat.cpp
 
 OBJS		:=	$(patsubst %.cpp, $(D_BUILD_DIR)/%.o, $(SRCS))
 OBJS_DEBUG	:=	$(patsubst %.cpp, $(DEBUG_DIR)/%.o, $(SRCS))
