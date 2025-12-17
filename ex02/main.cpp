@@ -31,30 +31,12 @@
 
 int	main( void ) {
 
-	const Animal *	a = new Dog();
-	const Animal *	b = new Cat();
-	const Dog	 *	d = new Dog();
-	const Dog	 *	cp = new Dog( *d );
+	const AAnimal *	a = new Dog();
+	const AAnimal *	b = new Cat();	
+	
+	// const AAnimal * wrong = new AAnimal();
 
 	delete a;
 	delete b;
-	delete d;
-	delete cp;
 
-	int			size = 10;
-	int			i = 0;
-	Animal *	animals[size];
-
-	while (i < size / 2) {
-		animals[i] = new Dog();
-		i++;
-	}
-	while (i < size) {
-		animals[i] = new Cat();
-		i++;
-	}
-
-	for (int j = 0 ; j < size ; j++)
-		delete animals[j];
-		
 }

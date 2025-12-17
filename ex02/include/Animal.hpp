@@ -37,24 +37,24 @@
 # define WHITE	"\e[1;97m"
 # define RESET	"\e[0m"
 
-class Animal {
+class AAnimal {
 
 public:
 
 /* ======= Orthodox Canonical Form ======= */
 
-	Animal ( void );
-	Animal ( const Animal & src );
+	AAnimal ( void );
+	AAnimal ( const AAnimal & src );
 
-	virtual ~Animal ( void );
+	virtual ~AAnimal ( void );
 
-	Animal & operator= ( const Animal & src );
+	AAnimal & operator= ( const AAnimal & src );
 
 
 /* ============== functions ============== */
 
 	std::string			getType ( void );
-	virtual void		makeSound ( void );
+	virtual void		makeSound ( void ) = 0;
 
 protected:
 

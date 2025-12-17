@@ -35,8 +35,8 @@ D_BUILD_DIR	:=	$(BUILD_DIR)/default_build
 DEBUG_DIR	:=	$(BUILD_DIR)/debug_build
 
 
-TARGET		:=	SetTheWorldOnFire
-TARGETDEBUG	:=	Debug_SetTheWorldOnFire
+TARGET		:=	Abstract
+TARGETDEBUG	:=	Debug_Abstract
 NAME		:=	$(BIN_DIR)/$(TARGET)
 NAMEDEBUG	:=	$(BIN_DIR)/$(TARGETDEBUG)
 INC_PATH	:=	include
@@ -53,7 +53,7 @@ CLR_WTH		:=	\033[1;97m
 
 ERS_STR		:=	\033[2K\r
 
-SRCS		:=	main.cpp animal.cpp cat.cpp dog.cpp WrongAnimal.cpp WrongCat.cpp brain.cpp
+SRCS		:=	main.cpp Animal.cpp Cat.cpp Dog.cpp WrongAnimal.cpp WrongCat.cpp Brain.cpp
 
 OBJS		:=	$(patsubst %.cpp, $(D_BUILD_DIR)/%.o, $(SRCS))
 OBJS_DEBUG	:=	$(patsubst %.cpp, $(DEBUG_DIR)/%.o, $(SRCS))

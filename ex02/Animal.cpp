@@ -30,23 +30,23 @@
 /* ================= Orthodox Canonical Form ================= */
 
 
-Animal::Animal( void ) : type("animal") {
-	std::cout << GREEN << "Random" << WHITE << " animal" << GREEN << " has been created" << RESET << std::endl;
+AAnimal::AAnimal( void ) : type("animal") {
+	std::cout << GREEN << "Random" << WHITE << " Aanimal" << GREEN << " has been created" << RESET << std::endl;
 }
 
 
-Animal::Animal ( const Animal & src ) {
+AAnimal::AAnimal ( const AAnimal & src ) {
 	type = src.type;
-	std::cout << CYAN << "Random" << WHITE << " animal" << CYAN << " has been cloned" << RESET << std::endl;
+	std::cout << CYAN << "Random" << WHITE << " Aanimal" << CYAN << " has been cloned" << RESET << std::endl;
 }
 
 
-Animal::~Animal ( void ) {
-	std::cout << YELLOW << "Random" << WHITE << " animal" << YELLOW << " has ascended into an higher realm" << RESET << std::endl;
+AAnimal::~AAnimal ( void ) {
+	std::cout << YELLOW << "Random" << WHITE << " Aanimal" << YELLOW << " has ascended into an higher realm" << RESET << std::endl;
 }
 
 
-Animal & Animal::operator=( const Animal & src ) {
+AAnimal & AAnimal::operator=( const AAnimal & src ) {
 	if ( this != &src ) {
 		type = src.type;
 	}
@@ -57,14 +57,6 @@ Animal & Animal::operator=( const Animal & src ) {
 /* ========================= Getters ========================= */
 
 
-std::string	Animal::getType( void ) {
+std::string	AAnimal::getType( void ) {
 	return ( type );
 }
-
-
-/* ======================== functions ======================== */
-
-void	Animal::makeSound( void ) {
-	std::cout << "Random animal sound" << std::endl;
-}
-

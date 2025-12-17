@@ -38,7 +38,7 @@ Dog::Dog( void ) {
 }
 
 
-Dog::Dog ( const Dog & src ) : Animal(src) {
+Dog::Dog ( const Dog & src ) : AAnimal(src) {
 	brain = new Brain( *src.brain );
 	type = src.type;
 	std::cout << CYAN << "Random" << WHITE << " Dog" << CYAN << " has been cloned" << RESET << std::endl;
