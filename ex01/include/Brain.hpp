@@ -1,5 +1,5 @@
 /* *************************************************************************************************************** */
-/*   animal.cpp                                                                                                    */
+/*   brain.hpp                                                                                                     */
 /*   By: lvan-bre                                                                   .,                             */
 /*                                                                                 okxl                            */
 /*                                                                                xkddo                            */
@@ -24,47 +24,24 @@
 /*                                                                                                                 */
 /* *************************************************************************************************************** */
 
-#include "Animal.hpp"
+#ifndef BRAIN_HPP
+# define BRAIN_HPP
 
+# include <iostream>
 
-/* ================= Orthodox Canonical Form ================= */
+class Brain {
 
+public:
 
-Animal::Animal( void ) : type("animal") {
-	std::cout << GREEN << "Random" << WHITE << " animal" << GREEN << " has been created" << RESET << std::endl;
-}
+	Brain ( void );
+	Brain ( const Brain & src );
 
+	~Brain ( void );
 
-Animal::Animal ( const Animal & src ) {
-	type = src.type;
-	std::cout << CYAN << "Random" << WHITE << " animal" << CYAN << " has been cloned" << RESET << std::endl;
-}
+private:
 
+	std::string ideas[100];
 
-Animal::~Animal ( void ) {
-	std::cout << YELLOW << "Random" << WHITE << " animal" << YELLOW << " has ascended into an higher realm" << RESET << std::endl;
-}
+};
 
-
-Animal & Animal::operator=( const Animal & src ) {
-	if ( this != &src ) {
-		type = src.type;
-	}
-	return ( *this );
-}
-
-
-/* ========================= Getters ========================= */
-
-
-std::string	Animal::getType( void ) {
-	return ( type );
-}
-
-
-/* ======================== functions ======================== */
-
-void	Animal::makeSound( void ) {
-	std::cout << "Random animal sound" << std::endl;
-}
-
+#endif

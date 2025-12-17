@@ -1,5 +1,5 @@
 /* *************************************************************************************************************** */
-/*   animal.cpp                                                                                                    */
+/*   animal.hpp                                                                                                  */
 /*   By: lvan-bre                                                                   .,                             */
 /*                                                                                 okxl                            */
 /*                                                                                xkddo                            */
@@ -24,47 +24,42 @@
 /*                                                                                                                 */
 /* *************************************************************************************************************** */
 
-#include "Animal.hpp"
+#ifndef ANIMAL_HPP
+# define ANIMAL_HPP
+
+# include <iostream>
+
+# define RED	"\e[1;91m"
+# define GREEN	"\e[1;92m"
+# define YELLOW	"\e[1;93m"
+# define PURPLE	"\e[1;95m"
+# define CYAN	"\e[1;96m"
+# define WHITE	"\e[1;97m"
+# define RESET	"\e[0m"
+
+class Animal {
+
+public:
+
+/* ======= Orthodox Canonical Form ======= */
+
+	Animal ( void );
+	Animal ( const Animal & src );
+
+	virtual ~Animal ( void );
+
+	Animal & operator= ( const Animal & src );
 
 
-/* ================= Orthodox Canonical Form ================= */
+/* ============== functions ============== */
 
+	std::string			getType ( void );
+	virtual void		makeSound ( void );
 
-Animal::Animal( void ) : type("animal") {
-	std::cout << GREEN << "Random" << WHITE << " animal" << GREEN << " has been created" << RESET << std::endl;
-}
+protected:
 
+	std::string	type;
 
-Animal::Animal ( const Animal & src ) {
-	type = src.type;
-	std::cout << CYAN << "Random" << WHITE << " animal" << CYAN << " has been cloned" << RESET << std::endl;
-}
+};
 
-
-Animal::~Animal ( void ) {
-	std::cout << YELLOW << "Random" << WHITE << " animal" << YELLOW << " has ascended into an higher realm" << RESET << std::endl;
-}
-
-
-Animal & Animal::operator=( const Animal & src ) {
-	if ( this != &src ) {
-		type = src.type;
-	}
-	return ( *this );
-}
-
-
-/* ========================= Getters ========================= */
-
-
-std::string	Animal::getType( void ) {
-	return ( type );
-}
-
-
-/* ======================== functions ======================== */
-
-void	Animal::makeSound( void ) {
-	std::cout << "Random animal sound" << std::endl;
-}
-
+#endif

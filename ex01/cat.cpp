@@ -25,30 +25,33 @@
 /* *************************************************************************************************************** */
 
 
-#include "cat.hpp"
+#include "Cat.hpp"
 
 
 /* ================= Orthodox Canonical Form ================= */
 
 
-cat::cat( void ) {
-	type = "cat";
-	std::cout << GREEN << "Random" << WHITE << " cat" << GREEN << " has been created" << RESET << std::endl;
+Cat::Cat( void ) {
+	brain = new Brain();
+	type = "Cat";
+	std::cout << GREEN << "Random" << WHITE << " Cat" << GREEN << " has been created" << RESET << std::endl;
 }
 
 
-cat::cat ( const cat & src ) : animal(src) {
+Cat::Cat ( const Cat & src ) : Animal( src ) {
+	brain = new Brain( *src.brain );
 	type = src.type;
-	std::cout << CYAN << "Random" << WHITE << " cat" << CYAN << " has been cloned" << RESET << std::endl;
+	std::cout << CYAN << "Random" << WHITE << " Cat" << CYAN << " has been cloned" << RESET << std::endl;
 }
 
 
-cat::~cat ( void ) {
-	std::cout << YELLOW << "Random" << WHITE << " cat" << YELLOW << " has ascended into an higher realm" << RESET << std::endl;
+Cat::~Cat ( void ) {
+	delete brain;
+	std::cout << YELLOW << "Random" << WHITE << " Cat" << YELLOW << " has ascended into an higher realm" << RESET << std::endl;
 }
 
 
-cat & cat::operator=( const cat & src ) {
+Cat & Cat::operator=( const Cat & src ) {
 	if ( this != &src ) {
 		type = src.type;
 	}
@@ -59,7 +62,7 @@ cat & cat::operator=( const cat & src ) {
 /* ======================== functions ======================== */
 
 
-void	cat::makeSound( void ) {
-	std::cout << "Random cat sound" << std::endl;
+void	Cat::makeSound( void ) {
+	std::cout << "Random Cat sound" << std::endl;
 }
 

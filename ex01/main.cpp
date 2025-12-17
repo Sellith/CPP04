@@ -24,50 +24,37 @@
 /*                                                                                                                 */
 /* *************************************************************************************************************** */
 
-#include "cat.hpp"
-#include "dog.hpp"
+#include "Cat.hpp"
+#include "Dog.hpp"
 #include "WrongAnimal.hpp"
 #include "WrongCat.hpp"
 
 int	main( void ) {
 
-	animal *	r = new animal();
-	animal *	a = new cat();
-	animal *	b = new dog();
+	const Animal *	a = new Dog();
+	const Animal *	b = new Cat();
+	const Dog	 *	d = new Dog();
+	const Dog	 *	cp = new Dog( *d );
 
-	WrongAnimal * wr = new WrongAnimal;
-	WrongAnimal * wa = new WrongCat;	
+	delete a;
+	delete b;
+	delete d;
+	delete cp;
 
-	// animal *	weird = new WrongCat;
+	int			size = 10;
+	int			i = 0;
+	Animal *	animals[size];
 
-	std::cout << "\n" << CYAN;
+	while (i < size / 2) {
+		animals[i] = new Dog();
+		i++;
+	}
+	while (i < size) {
+		animals[i] = new Cat();
+		i++;
+	}
 
-	std::cout << "this is an " << r->getType() << std::endl;
-	std::cout << "this is a " << a->getType() << std::endl;
-	std::cout << "this is a " << b->getType() << std::endl;
-
-	std::cout << "\n";
-
-	r->makeSound();
-	a->makeSound();
-	b->makeSound();
-
-	std::cout << "\n" << CYAN;
-
-	std::cout << "this is an " << wr->getType() << std::endl;
-	std::cout << "this is a " << wa->getType() << std::endl;
-
-	std::cout << "\n";
-
-	wr->makeSound();
-	wa->makeSound();
-
-	std::cout << "\n" << RESET;
-
-	delete(r);
-	delete(a);
-	delete(b);
-	delete(wr);
-	delete(wa);
-
+	for (int j = 0 ; j < size ; j++)
+		delete animals[j];
+		
 }

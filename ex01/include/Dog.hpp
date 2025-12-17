@@ -29,20 +29,25 @@
 
 # include <iostream>
 
-# include "animal.hpp"
+# include "Animal.hpp"
+# include "Brain.hpp"
 
-class dog : public animal {
+class Dog : public Animal {
 
 public:
 
-	dog ( void );
-	dog ( const dog & src );
+	Dog ( void );
+	Dog ( const Dog & src );
 
-	~dog ( void );
+	~Dog ( void );
 
-	dog & operator= ( const dog & src );
+	Dog & operator= ( const Dog & src );
 
 	void	makeSound ( void );
+
+private:
+
+	Brain *	brain;
 
 };
 

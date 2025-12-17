@@ -1,5 +1,5 @@
 /* *************************************************************************************************************** */
-/*   animal.cpp                                                                                                    */
+/*   WrongCat.cpp                                                                                                       */
 /*   By: lvan-bre                                                                   .,                             */
 /*                                                                                 okxl                            */
 /*                                                                                xkddo                            */
@@ -24,29 +24,29 @@
 /*                                                                                                                 */
 /* *************************************************************************************************************** */
 
-#include "Animal.hpp"
-
+#include "include/WrongCat.hpp"
 
 /* ================= Orthodox Canonical Form ================= */
 
 
-Animal::Animal( void ) : type("animal") {
-	std::cout << GREEN << "Random" << WHITE << " animal" << GREEN << " has been created" << RESET << std::endl;
+WrongCat::WrongCat( void ) {
+	type = "WrongCat";
+	std::cout << GREEN << "Random" << WHITE << " WrongCat" << GREEN << " has been created" << RESET << std::endl;
 }
 
 
-Animal::Animal ( const Animal & src ) {
+WrongCat::WrongCat ( const WrongCat & src ) : WrongAnimal(src) {
 	type = src.type;
-	std::cout << CYAN << "Random" << WHITE << " animal" << CYAN << " has been cloned" << RESET << std::endl;
+	std::cout << CYAN << "Random" << WHITE << " WrongCat" << CYAN << " has been cloned" << RESET << std::endl;
 }
 
 
-Animal::~Animal ( void ) {
-	std::cout << YELLOW << "Random" << WHITE << " animal" << YELLOW << " has ascended into an higher realm" << RESET << std::endl;
+WrongCat::~WrongCat ( void ) {
+	std::cout << YELLOW << "Random" << WHITE << " WrongCat" << YELLOW << " has ascended into an higher realm" << RESET << std::endl;
 }
 
 
-Animal & Animal::operator=( const Animal & src ) {
+WrongCat & WrongCat::operator=( const WrongCat & src ) {
 	if ( this != &src ) {
 		type = src.type;
 	}
@@ -54,17 +54,10 @@ Animal & Animal::operator=( const Animal & src ) {
 }
 
 
-/* ========================= Getters ========================= */
-
-
-std::string	Animal::getType( void ) {
-	return ( type );
-}
-
-
 /* ======================== functions ======================== */
 
-void	Animal::makeSound( void ) {
-	std::cout << "Random animal sound" << std::endl;
+
+void	WrongCat::makeSound( void ) {
+	std::cout << "Random WrongCat sound" << std::endl;
 }
 
