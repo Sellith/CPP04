@@ -1,5 +1,5 @@
 /* *************************************************************************************************************** */
-/*   dog.hpp                                                                                                  */
+/*   animal.cpp                                                                                                    */
 /*   By: lvan-bre                                                                   .,                             */
 /*                                                                                 okxl                            */
 /*                                                                                xkddo                            */
@@ -24,26 +24,47 @@
 /*                                                                                                                 */
 /* *************************************************************************************************************** */
 
-#ifndef DOG_HPP
-# define DOG_HPP
+#include "Animal.hpp"
 
-# include <iostream>
 
-# include "animal.hpp"
+/* ================= Orthodox Canonical Form ================= */
 
-class dog : public animal {
 
-public:
+Animal::Animal( void ) : type("Animal") {
+	std::cout << GREEN << "Random" << WHITE << " Animal" << GREEN << " has been created" << RESET << std::endl;
+}
 
-	dog ( void );
-	dog ( const dog & src );
 
-	~dog ( void );
+Animal::Animal ( const Animal & src ) {
+	type = src.type;
+	std::cout << CYAN << "Random" << WHITE << " Animal" << CYAN << " has been cloned" << RESET << std::endl;
+}
 
-	dog & operator= ( const dog & src );
 
-	void	makeSound ( void );
+Animal::~Animal ( void ) {
+	std::cout << YELLOW << "Random" << WHITE << " Animal" << YELLOW << " has ascended into an higher realm" << RESET << std::endl;
+}
 
-};
 
-#endif
+Animal & Animal::operator=( const Animal & src ) {
+	if ( this != &src ) {
+		type = src.type;
+	}
+	return ( *this );
+}
+
+
+/* ========================= Getters ========================= */
+
+
+std::string	Animal::getType( void ) {
+	return ( type );
+}
+
+
+/* ======================== functions ======================== */
+
+void	Animal::makeSound( void ) {
+	std::cout << "Random Animal sound" << std::endl;
+}
+

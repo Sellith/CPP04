@@ -1,5 +1,5 @@
 /* *************************************************************************************************************** */
-/*   cat.cpp                                                                                                       */
+/*   animal.hpp                                                                                                    */
 /*   By: lvan-bre                                                                   .,                             */
 /*                                                                                 okxl                            */
 /*                                                                                xkddo                            */
@@ -24,42 +24,42 @@
 /*                                                                                                                 */
 /* *************************************************************************************************************** */
 
+#ifndef ANIMAL_HPP
+# define ANIMAL_HPP
 
-#include "cat.hpp"
+# include <iostream>
 
+# define RED	"\e[1;91m"
+# define GREEN	"\e[1;92m"
+# define YELLOW	"\e[1;93m"
+# define PURPLE	"\e[1;95m"
+# define CYAN	"\e[1;96m"
+# define WHITE	"\e[1;97m"
+# define RESET	"\e[0m"
 
-/* ================= Orthodox Canonical Form ================= */
+class Animal {
 
+public:
 
-cat::cat( void ) {
-	type = "cat";
-	std::cout << GREEN << "Random" << WHITE << " cat" << GREEN << " has been created" << RESET << std::endl;
-}
+/* ======= Orthodox Canonical Form ======= */
 
+	Animal ( void );
+	Animal ( const Animal & src );
 
-cat::cat ( const cat & src ) : animal(src) {
-	type = src.type;
-	std::cout << CYAN << "Random" << WHITE << " cat" << CYAN << " has been cloned" << RESET << std::endl;
-}
+	virtual ~Animal ( void );
 
-
-cat::~cat ( void ) {
-	std::cout << YELLOW << "Random" << WHITE << " cat" << YELLOW << " has ascended into an higher realm" << RESET << std::endl;
-}
-
-
-cat & cat::operator=( const cat & src ) {
-	if ( this != &src ) {
-		type = src.type;
-	}
-	return ( *this );
-}
+	Animal & operator= ( const Animal & src );
 
 
-/* ======================== functions ======================== */
+/* ============== functions ============== */
 
+	std::string			getType ( void );
+	virtual void		makeSound ( void );
 
-void	cat::makeSound( void ) {
-	std::cout << "Random cat sound" << std::endl;
-}
+protected:
 
+	std::string	type;
+
+};
+
+#endif

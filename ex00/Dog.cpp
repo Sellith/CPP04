@@ -1,5 +1,5 @@
 /* *************************************************************************************************************** */
-/*   cat.hpp                                                                                                  */
+/*   dog.cpp                                                                                                       */
 /*   By: lvan-bre                                                                   .,                             */
 /*                                                                                 okxl                            */
 /*                                                                                xkddo                            */
@@ -24,26 +24,42 @@
 /*                                                                                                                 */
 /* *************************************************************************************************************** */
 
-#ifndef CAT_HPP
-# define CAT_HPP
 
-# include <iostream>
+#include "Dog.hpp"
 
-# include "animal.hpp"
 
-class cat : public animal {
+/* ================= Orthodox Canonical Form ================= */
 
-public:
 
-	cat ( void );
-	cat ( const cat & src );
+Dog::Dog( void ) {
+	type = "Dog";
+	std::cout << GREEN << "Random" << WHITE << " Dog" << GREEN << " has been created" << RESET << std::endl;
+}
 
-	~cat ( void );
 
-	cat & operator= ( const cat & src );
+Dog::Dog ( const Dog & src ) : Animal(src) {
+	type = src.type;
+	std::cout << CYAN << "Random" << WHITE << " Dog" << CYAN << " has been cloned" << RESET << std::endl;
+}
 
-	void	makeSound ( void );
-	
-};
 
-#endif
+Dog::~Dog ( void ) {
+	std::cout << YELLOW << "Random" << WHITE << " Dog" << YELLOW << " has ascended into an higher realm" << RESET << std::endl;
+}
+
+
+Dog & Dog::operator=( const Dog & src ) {
+	if ( this != &src ) {
+		type = src.type;
+	}
+	return ( *this );
+}
+
+
+/* ======================== functions ======================== */
+
+
+void	Dog::makeSound( void ) {
+	std::cout << "Random Dog sound" << std::endl;
+}
+

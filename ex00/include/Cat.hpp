@@ -1,5 +1,5 @@
 /* *************************************************************************************************************** */
-/*   animal.cpp                                                                                                    */
+/*   cat.hpp                                                                                                       */
 /*   By: lvan-bre                                                                   .,                             */
 /*                                                                                 okxl                            */
 /*                                                                                xkddo                            */
@@ -24,47 +24,26 @@
 /*                                                                                                                 */
 /* *************************************************************************************************************** */
 
-#include "animal.hpp"
+#ifndef CAT_HPP
+# define CAT_HPP
 
+# include <iostream>
 
-/* ================= Orthodox Canonical Form ================= */
+# include "Animal.hpp"
 
+class Cat : public Animal {
 
-animal::animal( void ) : type("animal") {
-	std::cout << GREEN << "Random" << WHITE << " animal" << GREEN << " has been created" << RESET << std::endl;
-}
+public:
 
+	Cat ( void );
+	Cat ( const Cat & src );
 
-animal::animal ( const animal & src ) {
-	type = src.type;
-	std::cout << CYAN << "Random" << WHITE << " animal" << CYAN << " has been cloned" << RESET << std::endl;
-}
+	~Cat ( void );
 
+	Cat & operator= ( const Cat & src );
 
-animal::~animal ( void ) {
-	std::cout << YELLOW << "Random" << WHITE << " animal" << YELLOW << " has ascended into an higher realm" << RESET << std::endl;
-}
+	void	makeSound ( void );
+	
+};
 
-
-animal & animal::operator=( const animal & src ) {
-	if ( this != &src ) {
-		type = src.type;
-	}
-	return ( *this );
-}
-
-
-/* ========================= Getters ========================= */
-
-
-std::string	animal::getType( void ) {
-	return ( type );
-}
-
-
-/* ======================== functions ======================== */
-
-void	animal::makeSound( void ) {
-	std::cout << "Random animal sound" << std::endl;
-}
-
+#endif

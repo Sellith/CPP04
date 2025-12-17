@@ -1,5 +1,5 @@
 /* *************************************************************************************************************** */
-/*   dog.cpp                                                                                                  */
+/*   dog.hpp                                                                                                       */
 /*   By: lvan-bre                                                                   .,                             */
 /*                                                                                 okxl                            */
 /*                                                                                xkddo                            */
@@ -24,42 +24,26 @@
 /*                                                                                                                 */
 /* *************************************************************************************************************** */
 
+#ifndef DOG_HPP
+# define DOG_HPP
 
-#include "dog.hpp"
+# include <iostream>
 
+# include "Animal.hpp"
 
-/* ================= Orthodox Canonical Form ================= */
+class Dog : public Animal {
 
+public:
 
-dog::dog( void ) {
-	type = "dog";
-	std::cout << GREEN << "Random" << WHITE << " dog" << GREEN << " has been created" << RESET << std::endl;
-}
+	Dog ( void );
+	Dog ( const Dog & src );
 
+	~Dog ( void );
 
-dog::dog ( const dog & src ) : animal(src) {
-	type = src.type;
-	std::cout << CYAN << "Random" << WHITE << " dog" << CYAN << " has been cloned" << RESET << std::endl;
-}
+	Dog & operator= ( const Dog & src );
 
+	void	makeSound ( void );
 
-dog::~dog ( void ) {
-	std::cout << YELLOW << "Random" << WHITE << " dog" << YELLOW << " has ascended into an higher realm" << RESET << std::endl;
-}
+};
 
-
-dog & dog::operator=( const dog & src ) {
-	if ( this != &src ) {
-		type = src.type;
-	}
-	return ( *this );
-}
-
-
-/* ======================== functions ======================== */
-
-
-void	dog::makeSound( void ) {
-	std::cout << "Random dog sound" << std::endl;
-}
-
+#endif

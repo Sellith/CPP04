@@ -24,21 +24,21 @@
 /*                                                                                                                 */
 /* *************************************************************************************************************** */
 
-#include "cat.hpp"
-#include "dog.hpp"
+#include "Cat.hpp"
+#include "Dog.hpp"
 #include "WrongAnimal.hpp"
 #include "WrongCat.hpp"
 
 int	main( void ) {
 
-	animal *	r = new animal();
-	animal *	a = new cat();
-	animal *	b = new dog();
+	Animal *	r = new Animal();
+	Animal *	a = new Cat();
+	Animal *	b = new Dog();
 
 	WrongAnimal * wr = new WrongAnimal;
 	WrongAnimal * wa = new WrongCat;	
 
-	// animal *	weird = new WrongCat;
+	// Animal *	weird = new WrongCat;
 
 	std::cout << "\n" << CYAN;
 

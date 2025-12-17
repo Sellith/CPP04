@@ -1,5 +1,5 @@
 /* *************************************************************************************************************** */
-/*   animal.hpp                                                                                                  */
+/*   cat.cpp                                                                                                       */
 /*   By: lvan-bre                                                                   .,                             */
 /*                                                                                 okxl                            */
 /*                                                                                xkddo                            */
@@ -24,42 +24,42 @@
 /*                                                                                                                 */
 /* *************************************************************************************************************** */
 
-#ifndef ANIMAL_HPP
-# define ANIMAL_HPP
 
-# include <iostream>
-
-# define RED	"\e[1;91m"
-# define GREEN	"\e[1;92m"
-# define YELLOW	"\e[1;93m"
-# define PURPLE	"\e[1;95m"
-# define CYAN	"\e[1;96m"
-# define WHITE	"\e[1;97m"
-# define RESET	"\e[0m"
-
-class animal {
-
-public:
-
-/* ======= Orthodox Canonical Form ======= */
-
-	animal ( void );
-	animal ( const animal & src );
-
-	virtual ~animal ( void );
-
-	animal & operator= ( const animal & src );
+#include "Cat.hpp"
 
 
-/* ============== functions ============== */
+/* ================= Orthodox Canonical Form ================= */
 
-	std::string			getType ( void );
-	virtual void		makeSound ( void );
 
-protected:
+Cat::Cat( void ) {
+	type = "Cat";
+	std::cout << GREEN << "Random" << WHITE << " Cat" << GREEN << " has been created" << RESET << std::endl;
+}
 
-	std::string	type;
 
-};
+Cat::Cat ( const Cat & src ) : Animal(src) {
+	type = src.type;
+	std::cout << CYAN << "Random" << WHITE << " Cat" << CYAN << " has been cloned" << RESET << std::endl;
+}
 
-#endif
+
+Cat::~Cat ( void ) {
+	std::cout << YELLOW << "Random" << WHITE << " Cat" << YELLOW << " has ascended into an higher realm" << RESET << std::endl;
+}
+
+
+Cat & Cat::operator=( const Cat & src ) {
+	if ( this != &src ) {
+		type = src.type;
+	}
+	return ( *this );
+}
+
+
+/* ======================== functions ======================== */
+
+
+void	Cat::makeSound( void ) {
+	std::cout << "Random Cat sound" << std::endl;
+}
+
