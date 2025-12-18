@@ -38,7 +38,6 @@ Dog::Dog( void ) {
 
 
 Dog::Dog ( const Dog & src ) : Animal(src) {
-	type = src.type;
 	std::cout << CYAN << "Random" << WHITE << " Dog" << CYAN << " has been cloned" << RESET << std::endl;
 }
 

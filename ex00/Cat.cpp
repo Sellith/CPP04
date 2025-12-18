@@ -38,7 +38,6 @@ Cat::Cat( void ) {
 
 
 Cat::Cat ( const Cat & src ) : Animal(src) {
-	type = src.type;
 	std::cout << CYAN << "Random" << WHITE << " Cat" << CYAN << " has been cloned" << RESET << std::endl;
 }
 

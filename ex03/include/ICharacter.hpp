@@ -28,7 +28,9 @@
 # define ICHARACTER_HPP
 
 # include <iostream>
-# include "AMateria.hpp"
+# include "colors.hpp"
+
+class AMateria;
 
 class ICharacter {
 	

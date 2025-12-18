@@ -38,6 +38,8 @@ public:
 
 	~Brain ( void );
 
+	Brain & operator= ( const Brain & src );
+
 private:
 
 	std::string ideas[100];

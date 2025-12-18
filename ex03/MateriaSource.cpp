@@ -1,5 +1,5 @@
 /* *************************************************************************************************************** */
-/*   brain.hpp                                                                                                     */
+/*   MateriaSource.cpp                                                                                             */
 /*   By: lvan-bre                                                                   .,                             */
 /*                                                                                 okxl                            */
 /*                                                                                xkddo                            */
@@ -24,25 +24,50 @@
 /*                                                                                                                 */
 /* *************************************************************************************************************** */
 
-#ifndef BRAIN_HPP
-# define BRAIN_HPP
+# include "MateriaSource.hpp"
 
-# include <iostream>
+MateriaSource::MateriaSource ( void ) {
+	for ( int i = 0 ; i < MAX_MATERIA ; i++)
+		materia[i] = NULL;
+}
 
-class Brain {
+MateriaSource::MateriaSource ( const MateriaSource & src ) {
+	*this = src;
+}
 
-public:
+MateriaSource::~MateriaSource ( void ) {
+	for ( int i = 0 ; i < MAX_MATERIA && materia[i] ; i++)
+		delete materia[i];
+}
 
-	Brain ( void );
-	Brain ( const Brain & src );
+MateriaSource & MateriaSource::operator= ( const MateriaSource & src ) {
+	for ( int i = 0 ; i < MAX_MATERIA ; i++)
+		materia[i] = src.materia[i];
+	return ( *this );
+}
 
-	~Brain ( void );
-	Brain & operator= ( const Brain & src);
+void	MateriaSource::learnMateria ( AMateria * src ) {
+	for ( int i = 0 ; i < MAX_MATERIA ; i++) {
+		if (!materia[i]) {
+			materia[i] = src;
+			return ;
+		}
+	}
+	delete (src);
+	std::cout << RED << "No slots left to learn materias" << RESET << std::endl;
+}
 
-private:
+AMateria *	MateriaSource::createMateria ( std::string const & type ) {
 
-	std::string ideas[100];
+	AMateria *	tmp;
 
-};
+	for (int i = 0 ; i < MAX_MATERIA ; i++) {
+		if (materia[i]->getType() == type) {
+			tmp = materia[i];
+			return (tmp);
+		}
+	}
 
-#endif
+	std::cout << RED << "MATERIA " << type << " NOT LEARNED" << RESET << std::endl;
+	return (NULL);
+}

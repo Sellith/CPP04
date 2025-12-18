@@ -1,5 +1,5 @@
 /* *************************************************************************************************************** */
-/*   brain.hpp                                                                                                     */
+/*   cure.hpp                                                                                                  */
 /*   By: lvan-bre                                                                   .,                             */
 /*                                                                                 okxl                            */
 /*                                                                                xkddo                            */
@@ -24,25 +24,25 @@
 /*                                                                                                                 */
 /* *************************************************************************************************************** */
 
-#ifndef BRAIN_HPP
-# define BRAIN_HPP
 
-# include <iostream>
+#ifndef CURE_HPP
+# define CURE_HPP
 
-class Brain {
+# include "AMateria.hpp"
+
+class Cure : public AMateria {
 
 public:
 
-	Brain ( void );
-	Brain ( const Brain & src );
+	Cure	( void );
+	Cure	( const Cure & src );
+	~Cure	( void );
 
-	~Brain ( void );
-	Brain & operator= ( const Brain & src);
+	Cure &	operator= ( const Cure & src );
 
-private:
-
-	std::string ideas[100];
-
+	Cure *	clone ( void ) const;
+	void	use (ICharacter & target);
+	
 };
 
 #endif

@@ -23,3 +23,32 @@
 /*                                                                                                 :::cl:          */
 /*                                                                                                                 */
 /* *************************************************************************************************************** */
+
+#ifndef MATERIASOURCE_HPP
+# define MATERIASOURCE_HPP
+
+# include "IMateriaSource.hpp"
+# include "AMateria.hpp"
+
+# define MAX_MATERIA 4
+
+class MateriaSource : public IMateriaSource {
+
+public:
+
+	MateriaSource ( void );
+	MateriaSource ( const MateriaSource & src );
+	~MateriaSource ( void );
+
+	MateriaSource & operator= ( const MateriaSource & src );
+
+	void		learnMateria ( AMateria * src );
+	AMateria *	createMateria ( std::string const & type );
+
+private:
+
+	AMateria *	materia[MAX_MATERIA];
+
+};
+
+#endif

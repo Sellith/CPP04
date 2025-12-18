@@ -34,6 +34,9 @@ int	main( void ) {
 	Animal *	r = new Animal();
 	Animal *	a = new Cat();
 	Animal *	b = new Dog();
+	Dog d;
+	Dog cp(d);
+
 
 	WrongAnimal * wr = new WrongAnimal;
 	WrongAnimal * wa = new WrongCat;	
@@ -45,6 +48,7 @@ int	main( void ) {
 	std::cout << "this is an " << r->getType() << std::endl;
 	std::cout << "this is a " << a->getType() << std::endl;
 	std::cout << "this is a " << b->getType() << std::endl;
+	std::cout << "this is a " << cp.getType() << std::endl;
 
 	std::cout << "\n";
 

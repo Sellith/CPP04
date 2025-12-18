@@ -23,3 +23,38 @@
 /*                                                                                                 :::cl:          */
 /*                                                                                                                 */
 /* *************************************************************************************************************** */
+
+#ifndef CHARACTER_HPP
+# define CHARACTER_HPP
+
+# include "ICharacter.hpp"
+# include "AMateria.hpp"
+
+# define MAX_MATERIA 4
+
+class Character : public ICharacter {
+
+public:
+
+	Character ( void );
+	Character ( const Character & src );
+	Character ( std::string const & name );
+	~Character ( void );
+
+	Character & operator= ( const Character & src );
+
+	std::string const &	getName ( void ) const;
+	void				equip ( AMateria* materia );
+	void				unequip ( int idx );
+	void				use ( int idx, ICharacter & target );
+
+private:
+
+	std::string 	_name;
+	AMateria *		_materia[4];
+
+	void		materia_init ( void );
+
+};
+
+#endif

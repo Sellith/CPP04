@@ -1,5 +1,5 @@
 /* *************************************************************************************************************** */
-/*   brain.hpp                                                                                                     */
+/*   colors.hpp                                                                                                  */
 /*   By: lvan-bre                                                                   .,                             */
 /*                                                                                 okxl                            */
 /*                                                                                xkddo                            */
@@ -24,25 +24,15 @@
 /*                                                                                                                 */
 /* *************************************************************************************************************** */
 
-#ifndef BRAIN_HPP
-# define BRAIN_HPP
+#ifndef COLORS_HPP
+# define COLORS_HPP
 
-# include <iostream>
-
-class Brain {
-
-public:
-
-	Brain ( void );
-	Brain ( const Brain & src );
-
-	~Brain ( void );
-	Brain & operator= ( const Brain & src);
-
-private:
-
-	std::string ideas[100];
-
-};
+# define RED	"\e[1;91m"
+# define GREEN	"\e[1;92m"
+# define YELLOW	"\e[1;93m"
+# define PURPLE	"\e[1;95m"
+# define CYAN	"\e[1;96m"
+# define WHITE	"\e[1;97m"
+# define RESET	"\e[0m"
 
 #endif

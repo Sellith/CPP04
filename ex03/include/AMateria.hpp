@@ -29,21 +29,28 @@
 
 # include <iostream>
 # include "ICharacter.hpp"
+# include "colors.hpp"
 
 class AMateria {
 
 public:
 
-	AMateria(std::string const & type);
+	AMateria ( void );
+	AMateria ( std::string const & type );
+	AMateria ( const AMateria & src );
+	virtual ~AMateria ( void );
 
-	std::string const & getType() const;
-	virtual AMateria* clone() const = 0;
-	virtual void use(ICharacter& target);
+	AMateria & operator= ( const AMateria & src );
 
-private:
+	std::string const &	getType ( void ) const;
+	virtual AMateria*	clone ( void ) const = 0;
+	virtual void		use ( ICharacter& target );
 
-	const std::string type;
+protected:
+
+	std::string _type;
 
 };
+
 
 #endif

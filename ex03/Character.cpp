@@ -1,5 +1,5 @@
 /* *************************************************************************************************************** */
-/*   brain.hpp                                                                                                     */
+/*   Character.cpp                                                                                                  */
 /*   By: lvan-bre                                                                   .,                             */
 /*                                                                                 okxl                            */
 /*                                                                                xkddo                            */
@@ -24,25 +24,73 @@
 /*                                                                                                                 */
 /* *************************************************************************************************************** */
 
-#ifndef BRAIN_HPP
-# define BRAIN_HPP
+# include "Character.hpp"
 
-# include <iostream>
+void	Character::materia_init ( void ) {
+	for ( int i = 0 ; i < MAX_MATERIA ; i++)
+		_materia[i] = NULL;
+}
 
-class Brain {
+Character::Character ( void ) : _name("default") {
+	materia_init();
+}
 
-public:
+Character::Character ( std::string const & name ) : _name(name) {
+	materia_init();
+}
 
-	Brain ( void );
-	Brain ( const Brain & src );
+Character::Character ( const Character & src) : _name(src._name) {
+	for ( int i = 0 ; i < MAX_MATERIA ; i++)
+		_materia[i] = src._materia[i];
+}
 
-	~Brain ( void );
-	Brain & operator= ( const Brain & src);
+Character::~Character ( void ) {
+	for (int i = 0 ; i < MAX_MATERIA ; i++)
+		unequip(i);
+}
 
-private:
+Character & Character::operator= ( const Character & src ) {
+	if (this != &src) {
+		for ( int i = 0 ; i < MAX_MATERIA ; i++)
+			_materia[i] = src._materia[i];
+		_name = src._name;
+	}
+	return ( *this );
+}
 
-	std::string ideas[100];
 
-};
+/* ------ */
 
-#endif
+
+std::string const & Character::getName ( void ) const {
+	return (_name);
+}
+
+void	Character::equip ( AMateria* materia ) {
+	if (!materia)
+		return ;
+	for (int i = 0 ; i < MAX_MATERIA ; i++) {
+		if (!_materia[i]) {
+			_materia[i] = materia;
+			return ;
+		}
+	}
+
+	std::cout << RED << "There are no free slots to equip this materia" << RESET << std::endl;
+}
+
+void	Character::unequip ( int idx ) {
+	if (!_materia[idx])
+		return ;
+	else 
+		_materia[idx] = NULL;
+}
+
+void	Character::use ( int idx, ICharacter & target ) {
+	if (idx >= 4 || idx < 0) {
+		std::cout << RED << "Invalid materia index" << RESET << std::endl;
+		return ;
+	}
+	if (_materia[idx])
+		_materia[idx]->use( target );
+}

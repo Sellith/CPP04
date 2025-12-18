@@ -1,5 +1,5 @@
 /* *************************************************************************************************************** */
-/*   brain.hpp                                                                                                     */
+/*   Ice.hpp                                                                                                  */
 /*   By: lvan-bre                                                                   .,                             */
 /*                                                                                 okxl                            */
 /*                                                                                xkddo                            */
@@ -24,25 +24,24 @@
 /*                                                                                                                 */
 /* *************************************************************************************************************** */
 
-#ifndef BRAIN_HPP
-# define BRAIN_HPP
+#ifndef ICE_HPP
+# define ICE_HPP
 
-# include <iostream>
+# include "AMateria.hpp"
 
-class Brain {
+class Ice : public AMateria {
 
 public:
 
-	Brain ( void );
-	Brain ( const Brain & src );
+	Ice		( void );
+	Ice		( const Ice & src );
+	~Ice	( void );
 
-	~Brain ( void );
-	Brain & operator= ( const Brain & src);
+	Ice &	operator= ( const Ice & src );
 
-private:
-
-	std::string ideas[100];
-
+	Ice *	clone ( void ) const;
+	void	use (ICharacter & target);
+	
 };
 
 #endif

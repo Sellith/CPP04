@@ -1,5 +1,5 @@
 /* *************************************************************************************************************** */
-/*   brain.hpp                                                                                                     */
+/*   Ice.cpp                                                                                                  */
 /*   By: lvan-bre                                                                   .,                             */
 /*                                                                                 okxl                            */
 /*                                                                                xkddo                            */
@@ -24,25 +24,28 @@
 /*                                                                                                                 */
 /* *************************************************************************************************************** */
 
-#ifndef BRAIN_HPP
-# define BRAIN_HPP
+# include "Ice.hpp"
 
-# include <iostream>
+Ice::Ice ( void ) : AMateria("ice") {}
 
-class Brain {
+Ice::Ice ( const Ice & src) : AMateria(src) {}
 
-public:
+Ice::~Ice ( void ) {}
 
-	Brain ( void );
-	Brain ( const Brain & src );
+Ice & Ice::operator= ( const Ice & src) {
+	if ( this != & src )
+		AMateria::operator=(src);
+	return ( *this );
+}
 
-	~Brain ( void );
-	Brain & operator= ( const Brain & src);
 
-private:
+/* ------- */
 
-	std::string ideas[100];
 
-};
+Ice *	Ice::clone ( void ) const {
+	return (new Ice(*this));
+}
 
-#endif
+void	Ice::use ( ICharacter & target ) {
+	std::cout << "* Shoots an ice bolt at " << target.getName() << " *" << std::endl;
+}

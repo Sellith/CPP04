@@ -1,5 +1,5 @@
 /* *************************************************************************************************************** */
-/*   brain.hpp                                                                                                     */
+/*   cure.cpp                                                                                                  */
 /*   By: lvan-bre                                                                   .,                             */
 /*                                                                                 okxl                            */
 /*                                                                                xkddo                            */
@@ -24,25 +24,28 @@
 /*                                                                                                                 */
 /* *************************************************************************************************************** */
 
-#ifndef BRAIN_HPP
-# define BRAIN_HPP
+#include "Cure.hpp"
 
-# include <iostream>
+Cure::Cure ( void ) : AMateria("cure") {}
 
-class Brain {
+Cure::Cure ( const Cure & src) : AMateria(src) {}
 
-public:
+Cure::~Cure ( void ) {}
 
-	Brain ( void );
-	Brain ( const Brain & src );
+Cure & Cure::operator= ( const Cure & src) {
+	if ( this != & src )
+		AMateria::operator=(src);
+	return ( *this );
+}
 
-	~Brain ( void );
-	Brain & operator= ( const Brain & src);
 
-private:
+/* ------- */
 
-	std::string ideas[100];
 
-};
+Cure *	Cure::clone ( void ) const {
+	return (new Cure(*this));
+}
 
-#endif
+void	Cure::use ( ICharacter & target ) {
+	std::cout << "* Heals " << target.getName() << "'s wounds *" << std::endl;
+}
