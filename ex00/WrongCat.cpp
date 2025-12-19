@@ -29,14 +29,12 @@
 /* ================= Orthodox Canonical Form ================= */
 
 
-WrongCat::WrongCat( void ) {
-	type = "WrongCat";
+WrongCat::WrongCat( void ) : WrongAnimal("WrongCat") {
 	std::cout << GREEN << "Random" << WHITE << " WrongCat" << GREEN << " has been created" << RESET << std::endl;
 }
 
 
 WrongCat::WrongCat ( const WrongCat & src ) : WrongAnimal(src) {
-	type = src.type;
 	std::cout << CYAN << "Random" << WHITE << " WrongCat" << CYAN << " has been cloned" << RESET << std::endl;
 }
 

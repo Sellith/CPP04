@@ -39,6 +39,10 @@ WrongAnimal::WrongAnimal ( const WrongAnimal & src ) : type(src.type) {
 }
 
 
+WrongAnimal::WrongAnimal ( std::string const & name ) : type(name) {
+	std::cout << GREEN << "Random " << WHITE << name << GREEN << " has been created" << RESET << std::endl;
+}
+
 WrongAnimal::~WrongAnimal ( void ) {
 	std::cout << YELLOW << "Random" << WHITE << " WrongAnimal" << YELLOW << " has ascended into an higher realm" << RESET << std::endl;
 }

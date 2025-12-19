@@ -54,7 +54,7 @@ public:
 /* ============== functions ============== */
 
 	std::string			getType ( void );
-	virtual void		makeSound ( void );
+	void				makeSound ( void );
 
 protected:
 

@@ -28,6 +28,7 @@
 #include "Dog.hpp"
 #include "WrongAnimal.hpp"
 #include "WrongCat.hpp"
+#include "Animal.hpp"
 
 int	main( void ) {
 

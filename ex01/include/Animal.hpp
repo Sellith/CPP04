@@ -45,6 +45,7 @@ public:
 
 	Animal ( void );
 	Animal ( const Animal & src );
+	Animal ( std::string const & name );
 
 	virtual ~Animal ( void );
 

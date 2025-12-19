@@ -41,6 +41,10 @@ AAnimal::AAnimal ( const AAnimal & src ) {
 }
 
 
+AAnimal::AAnimal ( std::string const & name ) : type(name) {
+	std::cout << GREEN << "Random " << WHITE << name << GREEN << " has been created" << RESET << std::endl;
+}
+
 AAnimal::~AAnimal ( void ) {
 	std::cout << YELLOW << "Random" << WHITE << " Aanimal" << YELLOW << " has ascended into an higher realm" << RESET << std::endl;
 }

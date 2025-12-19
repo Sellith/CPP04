@@ -31,8 +31,7 @@
 /* ================= Orthodox Canonical Form ================= */
 
 
-Cat::Cat( void ) {
-	type = "Cat";
+Cat::Cat( void ) : Animal("Cat") {
 	std::cout << GREEN << "Random" << WHITE << " Cat" << GREEN << " has been created" << RESET << std::endl;
 }
 

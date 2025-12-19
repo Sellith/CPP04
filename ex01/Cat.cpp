@@ -31,16 +31,12 @@
 /* ================= Orthodox Canonical Form ================= */
 
 
-Cat::Cat( void ) {
-	brain = new Brain();
-	type = "Cat";
+Cat::Cat( void ) : Animal("Cat"), brain(new Brain()) {
 	std::cout << GREEN << "Random" << WHITE << " Cat" << GREEN << " has been created" << RESET << std::endl;
 }
 
 
-Cat::Cat ( const Cat & src ) : Animal( src ) {
-	brain = new Brain( *src.brain );
-	type = src.type;
+Cat::Cat ( const Cat & src ) : Animal( src ), brain(new Brain( *src.brain )) {
 	std::cout << CYAN << "Random" << WHITE << " Cat" << CYAN << " has been cloned" << RESET << std::endl;
 }
 

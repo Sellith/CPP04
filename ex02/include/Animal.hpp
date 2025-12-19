@@ -45,6 +45,7 @@ public:
 
 	AAnimal ( void );
 	AAnimal ( const AAnimal & src );
+	AAnimal ( std::string const & name );
 
 	virtual ~AAnimal ( void );
 

@@ -41,9 +41,15 @@ Animal::Animal ( const Animal & src ) {
 }
 
 
+Animal::Animal ( std::string const & name ) : type(name) {
+	std::cout << GREEN << "Random " << WHITE << name << GREEN << " has been created" << RESET << std::endl;
+}
+
+
 Animal::~Animal ( void ) {
 	std::cout << YELLOW << "Random" << WHITE << " Animal" << YELLOW << " has ascended into an higher realm" << RESET << std::endl;
 }
+
 
 
 Animal & Animal::operator=( const Animal & src ) {

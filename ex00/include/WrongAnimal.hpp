@@ -45,6 +45,7 @@ public:
 
 	WrongAnimal ( void );
 	WrongAnimal ( const WrongAnimal & src );
+	WrongAnimal ( std::string const & name );
 
 	virtual ~WrongAnimal ( void );
 
@@ -54,7 +55,7 @@ public:
 /* ============== functions ============== */
 
 	std::string			getType ( void );
-	virtual void		makeSound ( void );
+	void				makeSound ( void );
 
 protected:
 
